@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="chat.css">
+    <title>Chat</title>
+    <style>
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #messages li {
+            padding: 5px 10px;
+        }
+        #messages li:nth-child(odd) {
+            background: #eee;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io('http://localhost:3001'); // Connect to the backend running on port 5000
+            $('form').submit(function(event){
+                event.preventDefault();
+                var sender = $('#sender').val();
+                var message = $('#message').val();
+                socket.emit('message', {'sender': sender, 'message': message});
+                $('#message').val('');
+            });
+            socket.on('message', function(data){
+                var sender = data.sender;
+                var message = data.message;
+                var chatMessage = $('<li>').text(sender + ': ' + message);
+                $('#messages').append(chatMessage);
+                chatMessage[0].scrollIntoView(); // Scroll to the latest message
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Chat</h1>
+    <ul id="messages"></ul>
+    <form>
+        <input id="sender" placeholder="Your Name" autocomplete="off">
+        <input id="message" placeholder="Message" autocomplete="off">
+        <button>Send</button>
+    </form>
+</body>
+</html>

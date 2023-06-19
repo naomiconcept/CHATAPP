@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+
+body{
+    margin: 0;
+}
+html{
+    margin: 0;
+    padding: 0;
+    background: url('../FE/images/image2.png');
+    -webkit-background-size:cover;
+    -moz-background-size: cover;
+    -o-background-size:cover;
+    background-size: cover;
+    
+}
+
+h2{
+    color: antiquewhite;
+    font-family: 'Kablammo', cursive;
+    text-align: center;
+    font-size: 6em;
+    margin-top: 9%;
+    margin-bottom: 50px;
+}
+
+.header,p{
+    color: antiquewhite;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+i{
+    color: rgb(244, 233, 218);
+}
+.container{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    transition: 0.2s;
+
+}
+.container:hover{opacity: 2;}
+
+#button{
+    float: right;
+    margin-right: 45%;
+    padding-left: 0;
+    position: relative;
+
+}
+
+.begin{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    margin-right: 50%;
+    position: relative;
+    float: right;
+    border:2px solid black;
+    text-align: center;
+    cursor: pointer;
+}
