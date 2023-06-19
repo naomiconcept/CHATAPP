@@ -6,7 +6,7 @@ body{
 html{
     margin: 0;
     padding: 0;
-    background: url('../FE/images/image2.png');
+    background: url('./images/image2.png');
     -webkit-background-size:cover;
     -moz-background-size: cover;
     -o-background-size:cover;
