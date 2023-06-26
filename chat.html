@@ -24,7 +24,7 @@
             var socket = io('http://localhost:3001'); // Connect to the backend running on port 5000
             $('form').submit(function(event){
                 event.preventDefault();
-                var sender = $('#sender').val();
+                var sender = sessionStorage.getItem("Username")
                 var message = $('#message').val();
                 socket.emit('message', {'sender': sender, 'message': message});
                 $('#message').val('');
@@ -43,7 +43,6 @@
     <h1>Chat</h1>
     <ul id="messages"></ul>
     <form>
-        <input id="sender" placeholder="Your Name" autocomplete="off">
         <input id="message" placeholder="Message" autocomplete="off">
         <button>Send</button>
     </form>
